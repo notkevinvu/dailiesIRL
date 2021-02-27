@@ -35,6 +35,5 @@ class HomeViewController: UIViewController {
         setupView()
     }
     
-    
 }
 
