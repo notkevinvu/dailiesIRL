@@ -15,6 +15,9 @@
 		254C985D25E6DC29009D65B5 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 254C985B25E6DC29009D65B5 /* LaunchScreen.storyboard */; };
 		254C986825E6DC29009D65B5 /* DailiesIRLTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 254C986725E6DC29009D65B5 /* DailiesIRLTests.swift */; };
 		254C987325E6DC29009D65B5 /* DailiesIRLUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 254C987225E6DC29009D65B5 /* DailiesIRLUITests.swift */; };
+		254C988E25E6FA86009D65B5 /* NaiveDaily.swift in Sources */ = {isa = PBXBuildFile; fileRef = 254C988D25E6FA86009D65B5 /* NaiveDaily.swift */; };
+		254C989625E701A3009D65B5 /* DataFetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 254C989525E701A3009D65B5 /* DataFetcher.swift */; };
+		254C989B25EA16FA009D65B5 /* DailyStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 254C989A25EA16FA009D65B5 /* DailyStore.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +52,9 @@
 		254C986E25E6DC29009D65B5 /* DailiesIRLUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DailiesIRLUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		254C987225E6DC29009D65B5 /* DailiesIRLUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailiesIRLUITests.swift; sourceTree = "<group>"; };
 		254C987425E6DC29009D65B5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		254C988D25E6FA86009D65B5 /* NaiveDaily.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NaiveDaily.swift; sourceTree = "<group>"; };
+		254C989525E701A3009D65B5 /* DataFetcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataFetcher.swift; sourceTree = "<group>"; };
+		254C989A25EA16FA009D65B5 /* DailyStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyStore.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,6 +105,7 @@
 		254C984F25E6DC28009D65B5 /* DailiesIRL */ = {
 			isa = PBXGroup;
 			children = (
+				254C988C25E6FA6E009D65B5 /* Global Models */,
 				254C985025E6DC28009D65B5 /* AppDelegate.swift */,
 				254C985225E6DC28009D65B5 /* SceneDelegate.swift */,
 				254C985425E6DC28009D65B5 /* HomeViewController.swift */,
@@ -106,6 +113,7 @@
 				254C985925E6DC29009D65B5 /* Assets.xcassets */,
 				254C985B25E6DC29009D65B5 /* LaunchScreen.storyboard */,
 				254C985E25E6DC29009D65B5 /* Info.plist */,
+				254C989525E701A3009D65B5 /* DataFetcher.swift */,
 			);
 			path = DailiesIRL;
 			sourceTree = "<group>";
@@ -126,6 +134,15 @@
 				254C987425E6DC29009D65B5 /* Info.plist */,
 			);
 			path = DailiesIRLUITests;
+			sourceTree = "<group>";
+		};
+		254C988C25E6FA6E009D65B5 /* Global Models */ = {
+			isa = PBXGroup;
+			children = (
+				254C988D25E6FA86009D65B5 /* NaiveDaily.swift */,
+				254C989A25EA16FA009D65B5 /* DailyStore.swift */,
+			);
+			path = "Global Models";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -258,9 +275,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				254C989625E701A3009D65B5 /* DataFetcher.swift in Sources */,
 				254C985525E6DC28009D65B5 /* HomeViewController.swift in Sources */,
 				254C985125E6DC28009D65B5 /* AppDelegate.swift in Sources */,
 				254C985325E6DC28009D65B5 /* SceneDelegate.swift in Sources */,
+				254C988E25E6FA86009D65B5 /* NaiveDaily.swift in Sources */,
+				254C989B25EA16FA009D65B5 /* DailyStore.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
