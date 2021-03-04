@@ -105,15 +105,15 @@
 		254C984F25E6DC28009D65B5 /* DailiesIRL */ = {
 			isa = PBXGroup;
 			children = (
+				254C98AD25F093B2009D65B5 /* Utilities_Services */,
 				254C988C25E6FA6E009D65B5 /* Global Models */,
+				254C98A825F088E6009D65B5 /* Scenes */,
 				254C985025E6DC28009D65B5 /* AppDelegate.swift */,
 				254C985225E6DC28009D65B5 /* SceneDelegate.swift */,
-				254C985425E6DC28009D65B5 /* HomeViewController.swift */,
 				254C985625E6DC28009D65B5 /* Main.storyboard */,
 				254C985925E6DC29009D65B5 /* Assets.xcassets */,
 				254C985B25E6DC29009D65B5 /* LaunchScreen.storyboard */,
 				254C985E25E6DC29009D65B5 /* Info.plist */,
-				254C989525E701A3009D65B5 /* DataFetcher.swift */,
 			);
 			path = DailiesIRL;
 			sourceTree = "<group>";
@@ -143,6 +143,30 @@
 				254C989A25EA16FA009D65B5 /* DailyStore.swift */,
 			);
 			path = "Global Models";
+			sourceTree = "<group>";
+		};
+		254C98A825F088E6009D65B5 /* Scenes */ = {
+			isa = PBXGroup;
+			children = (
+				254C98A925F08CAF009D65B5 /* Home */,
+			);
+			path = Scenes;
+			sourceTree = "<group>";
+		};
+		254C98A925F08CAF009D65B5 /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				254C985425E6DC28009D65B5 /* HomeViewController.swift */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		254C98AD25F093B2009D65B5 /* Utilities_Services */ = {
+			isa = PBXGroup;
+			children = (
+				254C989525E701A3009D65B5 /* DataFetcher.swift */,
+			);
+			path = Utilities_Services;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
