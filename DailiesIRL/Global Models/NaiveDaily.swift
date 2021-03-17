@@ -8,7 +8,7 @@
 import Foundation
 
 
-final class NaiveDaily {
+struct NaiveDaily {
     
     enum DailyStatus {
         case inProgress,
@@ -21,13 +21,9 @@ final class NaiveDaily {
     }
     
     public var name: String
-    public var status: DailyStatus
+    public var status: DailyStatus = .inProgress
     public var frequency: Frequency
-    
-    init(name: String, status: DailyStatus = .inProgress, frequency: Frequency) {
-        self.name = name
-        self.status = status
-        self.frequency = frequency
-    }
-    
+    public var id: UUID = UUID()
 }
+
+extension NaiveDaily: Hashable {}

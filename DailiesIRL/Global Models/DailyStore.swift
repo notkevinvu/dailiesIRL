@@ -10,6 +10,7 @@ import Foundation
 
 protocol DailyStoreProtocol {
     func fetchDailies(completion: @escaping ([NaiveDaily]) -> Void)
+    func getDailiesCount() -> Int
 }
 
 
@@ -27,10 +28,14 @@ final class TestDailyStore: DailyStoreProtocol {
         NaiveDaily(name: "Make some food or eat a snack", frequency: .daily),
         NaiveDaily(name: "Clean your room (even part of it)", frequency: .daily),
         NaiveDaily(name: "Give a friend a compliment", frequency: .daily),
-        NaiveDaily(name: "Call your parents", frequency: .daily)
+        NaiveDaily(name: "Call your parents", frequency: .daily),
     ]
     
     func fetchDailies(completion: @escaping ([NaiveDaily]) -> Void) {
         completion(testDailies)
+    }
+    
+    func getDailiesCount() -> Int {
+        return testDailies.count
     }
 }

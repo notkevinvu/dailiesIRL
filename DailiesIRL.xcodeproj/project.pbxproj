@@ -18,6 +18,8 @@
 		254C988E25E6FA86009D65B5 /* NaiveDaily.swift in Sources */ = {isa = PBXBuildFile; fileRef = 254C988D25E6FA86009D65B5 /* NaiveDaily.swift */; };
 		254C989625E701A3009D65B5 /* DataFetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 254C989525E701A3009D65B5 /* DataFetcher.swift */; };
 		254C989B25EA16FA009D65B5 /* DailyStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 254C989A25EA16FA009D65B5 /* DailyStore.swift */; };
+		254C98B625FB62AE009D65B5 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 254C98B525FB62AE009D65B5 /* HomeView.swift */; };
+		254C98BF25FB65CE009D65B5 /* UIColor_Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 254C98BE25FB65CE009D65B5 /* UIColor_Extension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -55,6 +57,8 @@
 		254C988D25E6FA86009D65B5 /* NaiveDaily.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NaiveDaily.swift; sourceTree = "<group>"; };
 		254C989525E701A3009D65B5 /* DataFetcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataFetcher.swift; sourceTree = "<group>"; };
 		254C989A25EA16FA009D65B5 /* DailyStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyStore.swift; sourceTree = "<group>"; };
+		254C98B525FB62AE009D65B5 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
+		254C98BE25FB65CE009D65B5 /* UIColor_Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColor_Extension.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -105,6 +109,7 @@
 		254C984F25E6DC28009D65B5 /* DailiesIRL */ = {
 			isa = PBXGroup;
 			children = (
+				254C98BD25FB65BA009D65B5 /* Extensions */,
 				254C98AD25F093B2009D65B5 /* Utilities_Services */,
 				254C988C25E6FA6E009D65B5 /* Global Models */,
 				254C98A825F088E6009D65B5 /* Scenes */,
@@ -156,6 +161,7 @@
 		254C98A925F08CAF009D65B5 /* Home */ = {
 			isa = PBXGroup;
 			children = (
+				254C98B525FB62AE009D65B5 /* HomeView.swift */,
 				254C985425E6DC28009D65B5 /* HomeViewController.swift */,
 			);
 			path = Home;
@@ -167,6 +173,14 @@
 				254C989525E701A3009D65B5 /* DataFetcher.swift */,
 			);
 			path = Utilities_Services;
+			sourceTree = "<group>";
+		};
+		254C98BD25FB65BA009D65B5 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				254C98BE25FB65CE009D65B5 /* UIColor_Extension.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -300,7 +314,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				254C989625E701A3009D65B5 /* DataFetcher.swift in Sources */,
+				254C98B625FB62AE009D65B5 /* HomeView.swift in Sources */,
 				254C985525E6DC28009D65B5 /* HomeViewController.swift in Sources */,
+				254C98BF25FB65CE009D65B5 /* UIColor_Extension.swift in Sources */,
 				254C985125E6DC28009D65B5 /* AppDelegate.swift in Sources */,
 				254C985325E6DC28009D65B5 /* SceneDelegate.swift in Sources */,
 				254C988E25E6FA86009D65B5 /* NaiveDaily.swift in Sources */,
