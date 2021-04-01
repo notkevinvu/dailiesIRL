@@ -18,21 +18,34 @@ final class HomeView: UIView {
     }()
     
     lazy var collectionView: UICollectionView = {
-//        let layout = UICollectionViewFlowLayout()
-//        layout.scrollDirection = .vertical
-//        layout.minimumLineSpacing = 30
-//        layout.itemSize = CGSize(width: 360, height: 110)
-//        // bottom edge inset added to allow users to scroll up more to see last deck
-//        // if there are more than 4 decks
-//        layout.sectionInset = UIEdgeInsets(top: 0, left: 0, bottom: 100, right: 0)
+        // item size at 1.0/1.0 fractional width/height means item will expand
+        // to fill its group's size
+        let itemSize = NSCollectionLayoutSize(
+            widthDimension: .fractionalWidth(0.5),
+            heightDimension: .fractionalHeight(1.0))
+        let cellItem = NSCollectionLayoutItem(layoutSize: itemSize)
+        cellItem.contentInsets = NSDirectionalEdgeInsets(
+            top: 10,
+            leading: 20,
+            bottom: 10,
+            trailing: 20)
         
-        let config = UICollectionLayoutListConfiguration(appearance: .insetGrouped)
-        let layout = UICollectionViewCompositionalLayout.list(using: config)
+        let groupSize = NSCollectionLayoutSize(
+            widthDimension: .fractionalWidth(1.0),
+            heightDimension: .fractionalHeight(1/5))
+        let group = NSCollectionLayoutGroup.horizontal(
+            layoutSize: groupSize,
+            subitem: cellItem,
+            count: 1)
         
+        let section = NSCollectionLayoutSection(group: group)
+        let layout = UICollectionViewCompositionalLayout(section: section)
         
         let view = UICollectionView(frame: .zero, collectionViewLayout: layout)
         view.translatesAutoresizingMaskIntoConstraints = false
         view.backgroundColor = .clear
+        
+        view.register(DailyCollectionViewCell.self, forCellWithReuseIdentifier: DailyCollectionViewCell.identifier)
         
         return view
     }()
@@ -42,7 +55,7 @@ final class HomeView: UIView {
     override init(frame: CGRect) {
         super.init(frame: .zero)
         setupSubviews()
-        backgroundColor = .white
+        layoutIfNeeded()
     }
     
     required init?(coder: NSCoder) {
@@ -56,22 +69,52 @@ final class HomeView: UIView {
     }
     
     // MARK: - Setup subviews
-    private func setupSubviews() {
+    private func addSubviews() {
         addSubview(backgroundView)
         addSubview(collectionView)
+    }
+    
+    private func configureBackgroundViewConstraints() {
+        
+        let backgroundTopAnchor = backgroundView.topAnchor.constraint(equalTo: topAnchor)
+        let backgroundBottomAnchor = backgroundView.bottomAnchor.constraint(equalTo: bottomAnchor)
+        backgroundBottomAnchor.priority = UILayoutPriority(999)
+        
+        let backgroundLeadingAnchor = backgroundView.leadingAnchor.constraint(equalTo: leadingAnchor)
+        let backgroundTrailingAnchor = backgroundView.trailingAnchor.constraint(equalTo: trailingAnchor)
+        backgroundTrailingAnchor.priority = UILayoutPriority(999)
         
         NSLayoutConstraint.activate([
-            backgroundView.topAnchor.constraint(equalTo: topAnchor),
-            backgroundView.bottomAnchor.constraint(equalTo: bottomAnchor),
-            backgroundView.leadingAnchor.constraint(equalTo: leadingAnchor),
-            backgroundView.trailingAnchor.constraint(equalTo: trailingAnchor),
-            
-            collectionView.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor),
-            collectionView.bottomAnchor.constraint(equalTo: bottomAnchor),
-            collectionView.leadingAnchor.constraint(equalTo: leadingAnchor),
-            collectionView.trailingAnchor.constraint(equalTo: trailingAnchor)
+            backgroundTopAnchor,
+            backgroundBottomAnchor,
+            backgroundLeadingAnchor,
+            backgroundTrailingAnchor
         ])
+    }
+    
+    private func configureCollectionViewConstraints() {
         
+        let collectionTopAnchor = collectionView.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor)
+        let collectionBottomAnchor = collectionView.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor)
+        collectionBottomAnchor.priority = UILayoutPriority(999)
+        
+        
+        let collectionLeadingAnchor = collectionView.leadingAnchor.constraint(equalTo: leadingAnchor)
+        let collectionTrailingAnchor = collectionView.trailingAnchor.constraint(equalTo: trailingAnchor)
+        collectionTrailingAnchor.priority = UILayoutPriority(999)
+        
+        NSLayoutConstraint.activate([
+            collectionTopAnchor,
+            collectionBottomAnchor,
+            collectionLeadingAnchor,
+            collectionTrailingAnchor
+        ])
+    }
+    
+    private func setupSubviews() {
+        addSubviews()
+        configureBackgroundViewConstraints()
+        configureCollectionViewConstraints()
     }
     
     private func addGradientToBackgroundView() {
@@ -79,7 +122,7 @@ final class HomeView: UIView {
             let layer = CAGradientLayer()
             let topColor = UIColor(hex: "4568DC")?.cgColor
             let bottomColor = UIColor(hex: "B06AB3")?.cgColor
-            layer.colors = [topColor, bottomColor]
+            layer.colors = [topColor!, bottomColor!]
             // gradient starts at top left, ends bot right
             layer.startPoint = CGPoint(x: 0, y: 0)
             layer.endPoint = CGPoint(x: 1, y: 1)

@@ -20,6 +20,8 @@
 		254C989B25EA16FA009D65B5 /* DailyStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 254C989A25EA16FA009D65B5 /* DailyStore.swift */; };
 		254C98B625FB62AE009D65B5 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 254C98B525FB62AE009D65B5 /* HomeView.swift */; };
 		254C98BF25FB65CE009D65B5 /* UIColor_Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 254C98BE25FB65CE009D65B5 /* UIColor_Extension.swift */; };
+		254C98C42601D30D009D65B5 /* DailyCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 254C98C32601D30D009D65B5 /* DailyCollectionViewCell.swift */; };
+		254C98CD2601DD18009D65B5 /* UIView_Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 254C98CC2601DD18009D65B5 /* UIView_Extension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -59,6 +61,8 @@
 		254C989A25EA16FA009D65B5 /* DailyStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyStore.swift; sourceTree = "<group>"; };
 		254C98B525FB62AE009D65B5 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		254C98BE25FB65CE009D65B5 /* UIColor_Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColor_Extension.swift; sourceTree = "<group>"; };
+		254C98C32601D30D009D65B5 /* DailyCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyCollectionViewCell.swift; sourceTree = "<group>"; };
+		254C98CC2601DD18009D65B5 /* UIView_Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIView_Extension.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -162,6 +166,7 @@
 			isa = PBXGroup;
 			children = (
 				254C98B525FB62AE009D65B5 /* HomeView.swift */,
+				254C98C32601D30D009D65B5 /* DailyCollectionViewCell.swift */,
 				254C985425E6DC28009D65B5 /* HomeViewController.swift */,
 			);
 			path = Home;
@@ -179,6 +184,7 @@
 			isa = PBXGroup;
 			children = (
 				254C98BE25FB65CE009D65B5 /* UIColor_Extension.swift */,
+				254C98CC2601DD18009D65B5 /* UIView_Extension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -319,7 +325,9 @@
 				254C98BF25FB65CE009D65B5 /* UIColor_Extension.swift in Sources */,
 				254C985125E6DC28009D65B5 /* AppDelegate.swift in Sources */,
 				254C985325E6DC28009D65B5 /* SceneDelegate.swift in Sources */,
+				254C98C42601D30D009D65B5 /* DailyCollectionViewCell.swift in Sources */,
 				254C988E25E6FA86009D65B5 /* NaiveDaily.swift in Sources */,
+				254C98CD2601DD18009D65B5 /* UIView_Extension.swift in Sources */,
 				254C989B25EA16FA009D65B5 /* DailyStore.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

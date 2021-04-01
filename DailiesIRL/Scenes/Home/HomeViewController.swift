@@ -30,11 +30,11 @@ final class HomeViewController: UIViewController {
     override func loadView() {
         super.loadView()
         setup()
+        setupCollectionView()
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        setupCollectionView()
         getDailies()
     }
     
@@ -43,6 +43,7 @@ final class HomeViewController: UIViewController {
     private func setupNavigationBar() {
         title = "Dailies"
         navigationController?.navigationBar.prefersLargeTitles = true
+        navigationItem.largeTitleDisplayMode = .always
         
         let appearance = UINavigationBarAppearance()
         appearance.titleTextAttributes = [.foregroundColor: UIColor.white]
@@ -64,39 +65,40 @@ final class HomeViewController: UIViewController {
     }
     
     private func setupCollectionView() {
-//        contentView.collectionView.delegate = self
-//        contentView.collectionView.dataSource = self
-        
-        let registration = UICollectionView.CellRegistration<UICollectionViewListCell, NaiveDaily> { (cell, indexPath, daily) in
-            
-            var content = cell.defaultContentConfiguration()
-            content.text = daily.name
-            cell.contentConfiguration = content
-            cell.accessories = [.disclosureIndicator()]
-        }
-        
         dataSource = UICollectionViewDiffableDataSource<Section, NaiveDaily>(collectionView: contentView.collectionView) { collectionView, indexPath, item in
             
-            collectionView.dequeueConfiguredReusableCell(using: registration, for: indexPath, item: item)
+            // the cell provider closure essentially functions as the
+            // cellForItemAt: collection view method
+            
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: DailyCollectionViewCell.identifier, for: indexPath) as? DailyCollectionViewCell
+            
+            cell?.titleLabel.text = item.name
+            
+            return cell
         }
-        
     }
     
     // MARK: - Data methods
     
     private func getDailies() {
-        dailyStore.fetchDailies { [dataSource] (dailies) in
-            var snapshot = NSDiffableDataSourceSnapshot<Section, NaiveDaily>()
-            snapshot.appendSections([.main])
-            snapshot.appendItems(dailies)
-            dataSource?.apply(snapshot)
+        dailyStore.fetchDailies { [dataSource] (result) in
+            switch result {
+            case .success(let dailies):
+                var snapshot = NSDiffableDataSourceSnapshot<Section, NaiveDaily>()
+                snapshot.appendSections([.currentDaily])
+                snapshot.appendItems(dailies)
+                dataSource?.apply(snapshot)
+            case .failure(let error):
+                print(error.localizedDescription)
+            }
         }
     }
-    
 }
+
 
 extension HomeViewController {
     enum Section {
-        case main
+        case currentDaily,
+             remainingDailies
     }
 }
