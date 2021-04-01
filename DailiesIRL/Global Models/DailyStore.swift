@@ -9,7 +9,7 @@ import Foundation
 // TODO: Add core data import
 
 protocol DailyStoreProtocol {
-    func fetchDailies(completion: @escaping ([NaiveDaily]) -> Void)
+    func fetchDailies(completion: @escaping (Result<[NaiveDaily], Error>) -> Void)
     func getDailiesCount() -> Int
 }
 
@@ -31,8 +31,8 @@ final class TestDailyStore: DailyStoreProtocol {
         NaiveDaily(name: "Call your parents", frequency: .daily),
     ]
     
-    func fetchDailies(completion: @escaping ([NaiveDaily]) -> Void) {
-        completion(testDailies)
+    func fetchDailies(completion: @escaping (Result<[NaiveDaily], Error>) -> Void) {
+        completion(.success(testDailies))
     }
     
     func getDailiesCount() -> Int {
